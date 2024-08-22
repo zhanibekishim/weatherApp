@@ -6,5 +6,5 @@ import javax.inject.Inject
 class GetForeCaseUseCast @Inject constructor(
     private val repository: WeatherRepository
 ) {
-    suspend fun getForeCast(cityId: Int) = repository.getForeCast(cityId)
+    suspend fun getForeCast(cityId: Int) = repository.getForecast(cityId)
 }
