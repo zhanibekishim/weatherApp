@@ -158,12 +158,12 @@ class DetailsStoreFactory @Inject constructor(
             }
             is Msg.ForecastLoadingError -> {
                 copy(
-                    forecastState = State.ForecastState.Loading
+                    forecastState = State.ForecastState.Error
                 )
             }
             is Msg.ForecastStartLoading -> {
                 copy(
-                    forecastState = State.ForecastState.Error
+                    forecastState = State.ForecastState.Loading
                 )
             }
         }
