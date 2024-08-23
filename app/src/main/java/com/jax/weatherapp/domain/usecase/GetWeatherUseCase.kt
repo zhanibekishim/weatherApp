@@ -1,9 +1,10 @@
 package com.jax.weatherapp.domain.usecase
 
 import com.jax.weatherapp.domain.repository.WeatherRepository
+import javax.inject.Inject
 
-class GetWeatherUseCase(
+class GetWeatherUseCase @Inject constructor(
     private val repository: WeatherRepository
 ) {
-    suspend fun getWeather(cityId: Int) = repository.getWeather(cityId)
+    suspend operator fun invoke(cityId: Int) = repository.getWeather(cityId)
 }
