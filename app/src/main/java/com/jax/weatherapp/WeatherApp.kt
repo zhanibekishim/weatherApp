@@ -8,8 +8,7 @@ import com.jax.weatherapp.di.DaggerApplicationComponent
 @ApplicationScope
 class WeatherApp: Application() {
 
-    private lateinit var applicationComponent: ApplicationComponent
-
+    lateinit var applicationComponent: ApplicationComponent
 
     override fun onCreate() {
         super.onCreate()
