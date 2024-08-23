@@ -78,9 +78,11 @@ dependencies {
     implementation(libs.decompose.jetpack)
 
     implementation(libs.room.core)
+    ksp(libs.room.compiler)
 
 
     implementation(libs.dagger.core)
+    ksp(libs.dagger.compiler)
 
 
     implementation(libs.glide.compose)
