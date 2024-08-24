@@ -90,6 +90,8 @@ dependencies {
     implementation(libs.retorfit.gsonConverter)
     implementation(libs.icons)
 
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

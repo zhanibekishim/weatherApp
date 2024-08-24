@@ -79,9 +79,9 @@ class FavouriteStoreFactory @Inject constructor(
         data class WeatherLoading(val cityId: Int): Msg
         data class WeatherError(val cityId: Int): Msg
         data class WeatherLoaded(
-            val cityId: Int,
-            val tempC: Float,
-            val conditionIconUrl: String
+            val cityId: Int?,
+            val tempC: Float?,
+            val conditionIconUrl: String?
         ) : Msg
     }
 
@@ -166,14 +166,18 @@ class FavouriteStoreFactory @Inject constructor(
                     cityItems = cityItems.map {
                         if (it.city.id == msg.cityId) {
                             it.copy(
-                                weatherState = State.WeatherState.WeatherLoaded
-                                    (tempC = msg.tempC, conditionUrl = msg.conditionIconUrl))
+                                weatherState = State.WeatherState.WeatherLoaded(
+                                    tempC = msg.tempC ?: 0f,
+                                    conditionUrl = msg.conditionIconUrl ?: ""
+                                )
+                            )
                         } else {
                             it
                         }
                     }
                 )
             }
+
 
             is Msg.WeatherError -> {
                 copy(

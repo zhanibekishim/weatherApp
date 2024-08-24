@@ -9,9 +9,9 @@ import com.jax.weatherapp.domain.entity.Weather
 import java.util.Date
 
 
-fun WeatherCurrentDto.toEntity(): Weather = this.current.toEntity()
+fun WeatherCurrentDto.toEntity(): Weather = current.toEntity()
 
-fun WeatherDto.toEntity() = Weather(
+fun WeatherDto.toEntity(): Weather = Weather(
     tempC = tempC,
     conditionText = condition.text,
     conditionUrl = condition.iconUrl.correctImageUrl(),
@@ -19,23 +19,24 @@ fun WeatherDto.toEntity() = Weather(
 )
 
 fun WeatherForecastDto.toEntity() = Forecast(
-    currentWeather = this.currentDto.toEntity(),
-    upcoming = this.forecast.forecastDay.drop(1).map{dayDto ->
+    currentWeather = currentDto.toEntity(),
+    upcoming = forecast.forecastDay.drop(1).map { dayDto ->
+        val dayWeatherDto = dayDto.dayWeatherDto
         Weather(
-            tempC = dayDto.dayWeatherDto.avgTempC,
-            conditionText = dayDto.dayWeatherDto.condition.text,
-            conditionUrl = dayDto.dayWeatherDto.condition.iconUrl.correctImageUrl(),
+            tempC = dayWeatherDto.avgTempC,
+            conditionText = dayWeatherDto.condition.text,
+            conditionUrl = dayWeatherDto.condition.iconUrl.correctImageUrl(),
             date = dayDto.date.toCalendar()
         )
     }
 )
 
-private fun String.correctImageUrl() = "https:$this".replace(
-    oldValue = "64x64",
-    newValue = "128x128"
-)
 private fun Long.toCalendar() = Calendar.getInstance().apply {
     time = Date(this@toCalendar * 1000)
 }
 
+private fun String.correctImageUrl() = "https:$this".replace(
+    oldValue = "64x64",
+    newValue = "128x128"
+)
 

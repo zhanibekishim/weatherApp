@@ -2,4 +2,6 @@
     <string name="app_name">weatherApp</string>
     <string name="add_city_to_favourite">Add city to favourite</string>
     <string name="search">Search city</string>
+    <string name="happened_some_issue">Happened some issue please try after some time</string>
+    <string name="upcoming">Upcoming</string>
 </resources>
