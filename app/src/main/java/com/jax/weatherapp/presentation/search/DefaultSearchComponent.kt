@@ -12,7 +12,6 @@ import dagger.assisted.AssistedInject
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 class DefaultSearchComponent @AssistedInject constructor(
     private val storeFactory: SearchStoreFactory,
@@ -57,6 +56,10 @@ class DefaultSearchComponent @AssistedInject constructor(
 
     override fun onChangeQuery(query: String) {
         store.accept(SearchStore.Intent.ChangeQuery(query = query))
+    }
+
+    override fun onClickCity(city: City) {
+        store.accept(SearchStore.Intent.ClickCity(city))
     }
 
     @AssistedFactory

@@ -5,13 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.arkivanov.decompose.defaultComponentContext
 import com.jax.weatherapp.WeatherApp
-import com.jax.weatherapp.domain.usecase.ChangeFavouriteStateUseCase
-import com.jax.weatherapp.domain.usecase.SearchUseCase
 import com.jax.weatherapp.presentation.root.DefaultRootComponent
 import com.jax.weatherapp.presentation.root.RootContent
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 

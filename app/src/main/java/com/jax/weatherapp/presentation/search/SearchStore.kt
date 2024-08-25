@@ -112,7 +112,8 @@ class SearchStoreFactory @Inject constructor(
                         }
                     }
                 }
-                is Intent.ClickSearch -> {
+
+                Intent.ClickSearch -> {
                     onlyOneSearchQueryJob?.cancel()
                     onlyOneSearchQueryJob = scope.launch {
                         dispatch(Msg.SearchLoading)
@@ -149,7 +150,7 @@ class SearchStoreFactory @Inject constructor(
                 )
             }
             is Msg.SearchResultLoaded -> {
-                if(msg.cities.isEmpty()){
+                if(msg.cities.isNotEmpty()){
                     copy(state = State.SearchState.SuccessLoaded(msg.cities))
                 }else{
                     copy(state = State.SearchState.EmptyResult)

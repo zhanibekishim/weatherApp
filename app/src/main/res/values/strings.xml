@@ -4,4 +4,6 @@
     <string name="search">Search city</string>
     <string name="happened_some_issue">Happened some issue please try after some time</string>
     <string name="upcoming">Upcoming</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="noting_found">По вашему запросу ничего не найдено</string>
 </resources>

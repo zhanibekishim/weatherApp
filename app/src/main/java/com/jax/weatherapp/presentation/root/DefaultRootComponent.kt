@@ -67,7 +67,7 @@ class DefaultRootComponent @AssistedInject constructor(
                        navigation.pop()
                    } ,
                    onCityClicked = {
-                       navigation.push(Config.Search(OpenReason.RegularSearch))
+                       navigation.push(Config.Details(it))
                    },
                    onClickBack = {
                        navigation.pop()

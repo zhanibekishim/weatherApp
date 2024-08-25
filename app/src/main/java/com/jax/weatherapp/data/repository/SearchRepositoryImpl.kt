@@ -10,6 +10,6 @@ class SearchRepositoryImpl @Inject constructor(
     private val apiService: ApiService
 ) : SearchRepository {
     override suspend fun search(query: String): List<City> {
-       return apiService.searchCity(query).toEntities()
+        return apiService.searchCity(query).toEntities()
     }
 }
